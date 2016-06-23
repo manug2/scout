@@ -22,7 +22,7 @@
                     <stopKey>STOP</stopKey>
                     <stopPort>9988</stopPort>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
-                    <war>${project.build.directory}/../../scout-web/target/scout-web-${parent.version}.war</war>
+                    <war>${project.build.directory}/../../scout-web/target/scout-web-${project.parent.version}.war</war>
 
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

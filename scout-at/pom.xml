@@ -16,13 +16,13 @@
         <dependency>
             <groupId>com.manug2</groupId>
             <artifactId>scout-web</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>com.manug2</groupId>
             <artifactId>scout-glue</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
@@ -67,7 +67,7 @@
                             <stopKey>STOP</stopKey>
                             <stopPort>9988</stopPort>
                             <scanIntervalSeconds>5</scanIntervalSeconds>
-                            <war>${project.build.directory}/../../scout-web/target/scout-web-${parent.version}.war</war>
+                            <war>${project.build.directory}/../../scout-web/target/scout-web-${project.parent.version}.war</war>
 
                             <connectors>
                                 <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
