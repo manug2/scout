@@ -1,4 +1,4 @@
-@login
+@init
 Feature: Test load application web page
 
   Scenario: Load initial web page

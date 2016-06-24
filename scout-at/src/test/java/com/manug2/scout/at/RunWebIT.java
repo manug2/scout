@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "target/test-classes/features",
         format = {"json:target/integration_cucumber.json", "html:target/cuke"},
-        tags = {"@login"},
+        tags = {"@login, @init"},
         glue = {"com.manug2.scout.glue"}
 )
 
