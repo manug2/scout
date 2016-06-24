@@ -5,14 +5,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import java.util.logging.Logger;
+
 import static com.manug2.scout.glue.browser.BrowserConstants.*;
 
 
 public class DriverFactory {
+    private static final Logger LOGGER = Logger.getLogger(DriverFactory.class.getName());
 
-
-    public static WebDriver getBrowser(BROWSER_TYPE browserTYPEType) {
-        switch (browserTYPEType) {
+    public static WebDriver getBrowser(BROWSER_TYPE browserType) {
+        LOGGER.info(String.format("using browser type [%s]", browserType));
+        switch (browserType) {
             case UNIT : return new HtmlUnitDriver();
             default: return getChromeDriver();
         }

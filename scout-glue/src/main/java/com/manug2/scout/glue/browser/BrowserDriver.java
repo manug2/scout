@@ -13,6 +13,7 @@ public class BrowserDriver {
     public synchronized static WebDriver getCurrentDriver() {
         if (mDriver==null) {
             try {
+                LOGGER.info("loading browser");
                 mDriver = DriverFactory.getBrowser(BrowserConstants.BROWSER);
             } finally{
                 Runtime.getRuntime().addShutdownHook(
@@ -33,14 +34,13 @@ public class BrowserDriver {
         try {
             getCurrentDriver().quit();
             mDriver = null;
-            LOGGER.info("closing the browser");
         } catch (UnreachableBrowserException e) {
             LOGGER.info("cannot close browser: unreachable browser");
         }
     }
 
     public static void loadPage(String url){
-        LOGGER.info("Directing browser to:" + url);
+        LOGGER.info(String.format("Directing browser to [%s]", url));
         getCurrentDriver().get(url);
     }
 
