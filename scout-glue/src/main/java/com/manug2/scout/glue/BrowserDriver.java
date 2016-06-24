@@ -13,7 +13,7 @@ public class BrowserDriver {
     public synchronized static WebDriver getCurrentDriver() {
         if (mDriver==null) {
             try {
-                mDriver = DriverFactory.getBrowser();
+                mDriver = DriverFactory.getBrowser(BrowserConstants.BROWSER);
             } finally{
                 Runtime.getRuntime().addShutdownHook(
                         new Thread(new BrowserCleanup()));

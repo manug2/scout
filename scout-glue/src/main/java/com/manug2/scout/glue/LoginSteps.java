@@ -11,13 +11,11 @@ import static org.junit.Assert.assertEquals;
 
 public class LoginSteps {
 
-    public static final String APP_URL = System.getProperty("APP_URL", "http://localhost:8181/");
-
     private static final Logger LOGGER = Logger.getLogger(LoginSteps.class.getName());
     @Given("^I navigate to the mock application$")
     public void given_I_navigate_to_the_mock_application(){
         LOGGER.info("Entering: I navigate to the mock application");
-        BrowserDriver.loadPage(APP_URL);
+        BrowserDriver.loadPage(BrowserConstants.APP_URL);
 
     }
 
