@@ -1,4 +1,4 @@
-package com.manug2.scout.glue;
+package com.manug2.scout.glue.browser;
 
 
 import org.openqa.selenium.WebDriver;

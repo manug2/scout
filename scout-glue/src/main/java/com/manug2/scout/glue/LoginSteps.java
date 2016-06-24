@@ -1,6 +1,8 @@
 package com.manug2.scout.glue;
 
 
+import com.manug2.scout.glue.browser.BrowserConstants;
+import com.manug2.scout.glue.browser.BrowserDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
