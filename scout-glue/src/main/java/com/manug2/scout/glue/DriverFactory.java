@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 
-public class BrowserFactory {
+public class DriverFactory {
 
     public static WebDriver getBrowser() {
         System.setProperty("webdriver.chrome.driver", "target/test-classes/lib/chromedriver.exe");
