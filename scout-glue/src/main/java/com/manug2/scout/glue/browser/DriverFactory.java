@@ -13,12 +13,18 @@ import static com.manug2.scout.glue.browser.BrowserConstants.*;
 public class DriverFactory {
     private static final Logger LOGGER = Logger.getLogger(DriverFactory.class.getName());
 
-    public static WebDriver getBrowser(BROWSER_TYPE browserType) {
+    public static WebDriver getBrowser(BrowserType browserType) {
         LOGGER.info(String.format("using browser type [%s]", browserType));
         switch (browserType) {
-            case UNIT : return new HtmlUnitDriver();
+            case UNIT : return createHtmlDriver();
             default: return getChromeDriver();
         }
+    }
+
+    private static HtmlUnitDriver createHtmlDriver() {
+        HtmlUnitDriver unitDriver = new HtmlUnitDriver();
+        unitDriver.setJavascriptEnabled(true);
+        return unitDriver;
     }
 
     private static WebDriver getChromeDriver() {

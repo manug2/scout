@@ -3,8 +3,8 @@ package com.manug2.scout.glue.browser;
 
 public class BrowserConstants {
     public static final String APP_URL = System.getProperty("APP_URL", "http://localhost:8181/");
-    public static final BROWSER_TYPE BROWSER = BROWSER_TYPE.valueOf(
-            System.getProperty("browser", BROWSER_TYPE.CHROME.toString()).toUpperCase());
+    public static final BrowserType BROWSER = BrowserType.valueOf(
+            System.getProperty("browser", BrowserType.CHROME.toString()).toUpperCase());
 
     public static final String PROP_CHROME_DRIVER_PATH = "webdriver.chrome.driver";
     public static final String CHROME_DRIVER_PATH =
@@ -13,9 +13,9 @@ public class BrowserConstants {
             System.getProperty("chrome.binary.path",
                     "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 
-    enum BROWSER_TYPE {
-        CHROME,
-        UNIT
-    }
+    public static boolean HALT_FOR_DEMO = Boolean.parseBoolean(
+            System.getProperty("halt", "false"));
 
+    public static int HALT_INTERVAL = Integer.parseInt(
+            System.getProperty("halt.duration", "4000"));
 }
