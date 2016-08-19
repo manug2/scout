@@ -20,4 +20,8 @@ public class LoginContainer {
 
     @FindBy(how = How.ID, using = "badLogin")
     public WebElement badLogin;
+
+    @FindBy(how = How.ID, using = "Reset")
+    public WebElement resetButton;
+
 }

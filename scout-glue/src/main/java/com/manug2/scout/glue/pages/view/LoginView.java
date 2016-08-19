@@ -1,12 +1,16 @@
 package com.manug2.scout.glue.pages.view;
 
+import com.manug2.scout.glue.assertions.ScoutAssert;
 import com.manug2.scout.glue.browser.BrowserDriver;
 import com.manug2.scout.glue.pages.container.LoginContainer;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.logging.Logger;
 
 import static com.manug2.scout.glue.browser.BrowserDriver.halt;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 
 public class LoginView {
@@ -30,8 +34,15 @@ public class LoginView {
     }
 
     public static void checkLoginSuccess() {
-        assert HomeView.isDisplayedCheck();
-        HomeView.checkLoginSuccess();
+        try {
+            assertTrue("Login page is not displayed", HomeView.isDisplayedCheck());
+            HomeView.checkLoginSuccess();
+        } catch (TimeoutException timeout) {
+            if(ScoutAssert.isNSEE(timeout))
+                fail("Could not detect Home Page!");
+            else
+                throw timeout;
+        }
     }
 
     public static boolean isDisplayedCheck(){
@@ -40,4 +51,11 @@ public class LoginView {
         return loginContainer.loginPageDiv.isDisplayed();
     }
 
+    public static void reset() {
+        loginContainer.resetButton.click();
+    }
+
+    public static boolean isReset() {
+        return ! loginContainer.badLogin.isDisplayed();
+    }
 }
