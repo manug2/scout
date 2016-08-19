@@ -2,8 +2,8 @@ package com.manug2.scout.glue.constants;
 
 public enum Outcome {
 
-	SUCCESS(new String[]{"success", "successfully", "OK", "Login Success"}),
-	FAILURE(new String[]{"failure", "unsuccessfully", "NOK", "Login Failed"});
+	SUCCESS(new String[]{"success", "succeeded", "successfully", "OK", "Login Success"}),
+	FAILURE(new String[]{"failure", "failed", "unsuccessfully", "NOK", "Login Failed"});
 	
 	private String[] aliases;
 	

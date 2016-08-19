@@ -18,4 +18,6 @@ public class LoginContainer {
     @FindBy(how = How.ID, using = "SubmitLogin")
     public WebElement submitButton;
 
+    @FindBy(how = How.ID, using = "badLogin")
+    public WebElement badLogin;
 }

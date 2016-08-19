@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 import static com.manug2.scout.glue.browser.BrowserDriver.halt;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LoginSteps {
 
@@ -31,7 +32,7 @@ public class LoginSteps {
         LoginView.login(user, password);
     }
 
-    @Then("^I should see that I logged in '(.+)'$")
+    @Then("^I should see that the login attempt '(.+)'$")
     public void then_I_login(String outcomeString){
         LOGGER.info("Entering: I should see that I logged in " + outcomeString);
         Outcome outcome = Outcome.outcomeForName(outcomeString);
@@ -43,14 +44,16 @@ public class LoginSteps {
                 LoginView.checkLoginErrors();
                 break;
         }
-
-        final String resultPageTitle = BrowserDriver.getCurrentDriver().getTitle();
-        assertEquals("Login Success", resultPageTitle);
         halt();
     }
 
     @Then("^I should check that title is '(.+)'$")
     public void i_should_check_that_title_is(String title) throws Throwable {
         assertEquals(title, BrowserDriver.getCurrentDriver().getTitle());
+    }
+
+    @Then("^Login page is displayed$")
+    public void is_LoginPage_displayed() throws Throwable {
+        assertTrue("Login page is not displayed", LoginView.isDisplayedCheck());
     }
 }

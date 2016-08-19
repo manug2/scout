@@ -10,13 +10,24 @@
 
     <input type="text" id="username">
     <input type="password" id="password">
+    <label id="badLogin" hidden="true">Incorrect user/password</label>
     <input type="button" id="SubmitLogin" value="Login here!">
+    <input type="button" id="Reset" value="Reset">
 
 </div>
 
 <script type="text/javascript">
     document.getElementById("SubmitLogin").onclick = function () {
-        location.href = "../login-success.html";
+        var username = document.getElementById("username").value;
+        if (username == 'manu')
+            location.href = "../login-success.html";
+        else
+            document.getElementById("badLogin").hidden = false;
+    };
+    document.getElementById("Reset").onclick = function () {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+            document.getElementById("badLogin").hidden = true;
     };
 </script>
 

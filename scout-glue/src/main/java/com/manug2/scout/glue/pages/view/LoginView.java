@@ -24,15 +24,20 @@ public class LoginView {
         LOGGER.info("Login submitted");
     }
 
-    public static void checkLoginSuccess(){
-        LOGGER.info("Check login was successful");
-        //HomeView.isDisplayedCheck();
-    }
-
     public static void checkLoginErrors(){
         LOGGER.info("Check login errors displayed");
-        BrowserDriver.waitForElement(loginContainer.usernameInput);
-        BrowserDriver.waitForElement(loginContainer.passwordInput);
+        BrowserDriver.waitForElement(loginContainer.badLogin);
+    }
+
+    public static void checkLoginSuccess() {
+        assert HomeView.isDisplayedCheck();
+        HomeView.checkLoginSuccess();
+    }
+
+    public static boolean isDisplayedCheck(){
+        LOGGER.info("Checking login page is displayed");
+        BrowserDriver.waitForElement(loginContainer.loginPageDiv);
+        return loginContainer.loginPageDiv.isDisplayed();
     }
 
 }
