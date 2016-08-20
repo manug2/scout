@@ -3,6 +3,7 @@ package com.manug2.scout.glue.pages.view;
 import com.manug2.scout.glue.assertions.ScoutAssert;
 import com.manug2.scout.glue.browser.BrowserDriver;
 import com.manug2.scout.glue.pages.container.LoginContainer;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.PageFactory;
 
@@ -56,6 +57,6 @@ public class LoginView {
     }
 
     public static boolean isReset() {
-        return ! loginContainer.badLogin.isDisplayed();
+        return StringUtils.isBlank(loginContainer.badLogin.getText());
     }
 }

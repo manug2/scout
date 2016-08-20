@@ -23,6 +23,7 @@ public class DriverFactory {
 
     private static HtmlUnitDriver createHtmlDriver() {
         HtmlUnitDriver unitDriver = new HtmlUnitDriver();
+        LOGGER.info("enabling java script in html unit driver");
         unitDriver.setJavascriptEnabled(true);
         return unitDriver;
     }
